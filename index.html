@@ -1148,6 +1148,8 @@
       panels.forEach(p => p.classList.remove('on'));
       tab.classList.add('on'); tab.setAttribute('aria-selected','true');
       document.getElementById(tab.getAttribute('aria-controls')).classList.add('on');
+      const cartaTop = document.getElementById('carta').getBoundingClientRect().top + window.scrollY;
+      window.scrollTo({ top: cartaTop, behavior: 'smooth' });
       setTimeout(observe, 50);
     });
   });
