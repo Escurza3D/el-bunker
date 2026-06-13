@@ -1,0 +1,1298 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#000000" />
+
+  <title>El Búnker Santander | Hamburguesas Smash & Bar · Abierto todos los días</title>
+  <meta name="description" content="El Búnker Santander, especialistas en hamburguesas smash artesanas. Nachos, ensaladas, croquetas de paleta ibérica y postres caseros. Abrimos todos los días desde las 07:00." />
+  <meta name="keywords" content="el bunker santander, hamburguesas smash santander, smash burger santander, bar hamburguesas santander, nachos, croquetas ibéricas, restaurante santander" />
+  <link rel="canonical" href="https://elbunker.es/" />
+
+  <meta property="og:type" content="restaurant" />
+  <meta property="og:url" content="https://elbunker.es/" />
+  <meta property="og:title" content="El Búnker | Hamburguesas Smash & Bar · Santander" />
+  <meta property="og:description" content="Doble burguer, carne mechada, nachos y mucho más. Abiertos todos los días desde las 07:00 en Santander." />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Restaurant",
+    "name": "El Búnker",
+    "description": "Especialistas en hamburguesas smash artesanas, nachos y raciones. Bar abierto todos los días en Santander.",
+    "url": "https://elbunker.es",
+    "servesCuisine": ["Hamburguesas","Americana","Bar"],
+    "priceRange": "€€",
+    "address": { "@type": "PostalAddress", "streetAddress": "Pl. Dionisio Ridruejo", "postalCode": "39009", "addressLocality": "Santander", "addressRegion": "Cantabria", "addressCountry": "ES" },
+    "telephone": "+34602610589",
+    "openingHoursSpecification": [
+      { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday"], "opens": "07:00", "closes": "00:00" },
+      { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Friday","Saturday"], "opens": "07:00", "closes": "01:00" },
+      { "@type": "OpeningHoursSpecification", "dayOfWeek": "Sunday", "opens": "07:00", "closes": "00:00" }
+    ]
+  }
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;600;700&family=Karla:ital,wght@0,300;0,400;0,500;0,600;1,300&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ═══════════════════════════════════════════
+       TOKENS
+    ═══════════════════════════════════════════ */
+    :root {
+      --bg:           #000;
+      --bg-1:         #0a0a0a;
+      --bg-2:         #111;
+      --bg-3:         #1a1a1a;
+      --fg:           #fff;
+      --fg-2:         #bbb;
+      --fg-3:         #666;
+      --accent:       #cc1a2b;
+      --accent-h:     #e82236;
+      --border:       rgba(255,255,255,0.07);
+      --border-s:     rgba(255,255,255,0.15);
+      --r:            6px;
+      --ease:         cubic-bezier(0.16,1,0.3,1);
+      --font-h:       'Oswald', sans-serif;
+      --font-b:       'Karla', sans-serif;
+    }
+
+    /* ═══════════════════════════════════════════
+       BASE
+    ═══════════════════════════════════════════ */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { background: var(--bg); color: var(--fg); font-family: var(--font-b); font-size: 16px; line-height: 1.6; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+    img { display: block; max-width: 100%; }
+    a { color: inherit; text-decoration: none; }
+    ul { list-style: none; }
+
+    .skip-link { position: absolute; top: -100%; left: 1rem; background: var(--accent); color: #fff; padding: .5rem 1rem; border-radius: 4px; z-index: 9999; }
+    .skip-link:focus { top: 1rem; }
+    :focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+
+    /* ═══════════════════════════════════════════
+       NAVBAR
+    ═══════════════════════════════════════════ */
+    .nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 200;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 2rem; height: 60px;
+      background: rgba(0,0,0,0.9);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border);
+      transition: background .3s var(--ease);
+    }
+    .nav__logo { font-family: var(--font-h); font-size: 1.25rem; font-weight: 700; letter-spacing: .1em; }
+    .nav__logo b { color: var(--accent); }
+    .nav__links { display: flex; gap: 2rem; }
+    .nav__links a { font-family: var(--font-h); font-size: .78rem; letter-spacing: .14em; text-transform: uppercase; color: var(--fg-2); transition: color .2s; }
+    .nav__links a:hover { color: var(--fg); }
+    .nav__cta { font-family: var(--font-h); font-size: .75rem; letter-spacing: .14em; text-transform: uppercase; background: var(--accent); color: #fff; padding: .5rem 1.2rem; border-radius: 4px; transition: background .2s, transform .15s var(--ease); }
+    .nav__cta:hover { background: var(--accent-h); transform: translateY(-1px); }
+    .nav__burger { display: none; flex-direction: column; gap: 5px; background: none; border: none; cursor: pointer; padding: 4px; }
+    .nav__burger span { display: block; width: 22px; height: 2px; background: var(--fg); border-radius: 2px; transition: .3s; }
+    .nav__burger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .nav__burger.open span:nth-child(2) { opacity: 0; }
+    .nav__burger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+    .nav__mobile { display: none; position: fixed; top: 60px; left: 0; right: 0; background: #000; border-bottom: 1px solid var(--border); padding: 1.5rem 2rem; flex-direction: column; gap: 1.2rem; z-index: 199; }
+    .nav__mobile.open { display: flex; }
+    .nav__mobile a { font-family: var(--font-h); font-size: 1rem; letter-spacing: .12em; text-transform: uppercase; color: var(--fg-2); padding-bottom: 1.2rem; border-bottom: 1px solid var(--border); }
+    .nav__mobile a:last-child { border-bottom: none; padding-bottom: 0; }
+
+    /* ═══════════════════════════════════════════
+       HERO
+    ═══════════════════════════════════════════ */
+    .hero {
+      min-height: 100dvh;
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      text-align: center; padding: 8rem 1.5rem 5rem;
+      position: relative; overflow: hidden;
+    }
+    .hero__noise {
+      position: absolute; inset: 0;
+      background: radial-gradient(ellipse 80% 60% at 50% 60%, rgba(204,26,43,0.07) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .hero__word {
+      position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%);
+      font-family: var(--font-h); font-size: clamp(7rem, 28vw, 22rem);
+      font-weight: 700; letter-spacing: -.03em;
+      color: rgba(255,255,255,0.022); user-select: none; pointer-events: none; white-space: nowrap;
+    }
+    .hero__pill {
+      font-family: var(--font-h); font-size: .7rem; letter-spacing: .3em; text-transform: uppercase;
+      color: var(--accent); border: 1px solid rgba(204,26,43,0.4);
+      padding: .35rem 1rem; border-radius: 100px; margin-bottom: 2rem;
+    }
+    .hero__logo {
+      display: flex; align-items: center; justify-content: center; margin-bottom: 2rem;
+    }
+    .hero__svg { width: clamp(220px, 52vw, 420px); }
+    .hero__sub {
+      font-family: var(--font-h); font-size: clamp(1rem, 3vw, 1.6rem);
+      font-weight: 400; letter-spacing: .08em; text-transform: uppercase;
+      color: var(--fg-2); margin-bottom: 3rem; max-width: 520px;
+    }
+    .hero__sub strong { color: var(--fg); font-weight: 700; }
+    .hero__btns { display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center; }
+
+    .btn { font-family: var(--font-h); font-size: .8rem; letter-spacing: .16em; text-transform: uppercase; padding: .9rem 2rem; border-radius: 4px; cursor: pointer; border: none; transition: background .2s var(--ease), transform .15s var(--ease), color .2s; }
+    .btn-r { background: var(--accent); color: #fff; }
+    .btn-r:hover { background: var(--accent-h); transform: translateY(-2px); }
+    .btn-o { background: transparent; color: var(--fg); border: 1px solid var(--border-s); }
+    .btn-o:hover { border-color: var(--fg); transform: translateY(-2px); }
+
+
+    /* ═══════════════════════════════════════════
+       SECTION CHROME
+    ═══════════════════════════════════════════ */
+    .wrap { max-width: 1160px; margin: 0 auto; padding: 0 1.5rem; }
+    .sec { padding: 6rem 0; }
+    .sec--alt { background: var(--bg-1); }
+
+    .sec-head { margin-bottom: 3rem; }
+    .sec-head__eye { font-family: var(--font-h); font-size: .65rem; letter-spacing: .3em; text-transform: uppercase; color: var(--accent); margin-bottom: .6rem; display: block; }
+    .sec-head__title { font-family: var(--font-h); font-size: clamp(2.6rem, 7vw, 5.5rem); font-weight: 700; text-transform: uppercase; letter-spacing: -.01em; line-height: .92; }
+    .sec-head__note { margin-top: 1rem; font-size: .9rem; color: var(--fg-2); }
+    .sec-head__note strong { color: var(--fg); }
+
+    hr.divider { border: none; border-top: 1px solid var(--border); }
+
+    /* ═══════════════════════════════════════════
+       MENU TABS
+    ═══════════════════════════════════════════ */
+    .tabs-wrap { position: sticky; top: 60px; z-index: 100; background: rgba(0,0,0,0.95); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); }
+    .tabs { display: flex; overflow-x: auto; -ms-overflow-style: none; scrollbar-width: none; }
+    .tabs::-webkit-scrollbar { display: none; }
+    .tab {
+      font-family: var(--font-h); font-size: .8rem; letter-spacing: .15em; text-transform: uppercase;
+      color: var(--fg-3); padding: 1.1rem 2rem; background: none; border: none; border-bottom: 2px solid transparent;
+      cursor: pointer; white-space: nowrap; transition: color .2s, border-color .2s; margin-bottom: -1px;
+    }
+    .tab:hover { color: var(--fg-2); }
+    .tab.on { color: var(--fg); border-bottom-color: var(--accent); }
+
+    .panel { display: none; }
+    .panel.on { display: block; }
+
+    /* ═══════════════════════════════════════════
+       RACIONES GRID  (photo card, 3 col)
+    ═══════════════════════════════════════════ */
+    .rac-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px; background: var(--border);
+      border: 1px solid var(--border);
+    }
+
+    .rac-card {
+      background: var(--bg-2);
+      display: flex; flex-direction: column;
+      transition: background .25s var(--ease);
+      overflow: hidden;
+    }
+    .rac-card:hover { background: var(--bg-3); }
+    .rac-card:hover .rac-card__img img { transform: scale(1.05); }
+
+    .rac-card__img {
+      width: 100%; aspect-ratio: 4/3; overflow: hidden; position: relative;
+    }
+    .rac-card__img img {
+      width: 100%; height: 100%; object-fit: cover;
+      transition: transform .5s var(--ease);
+    }
+    .rac-card__body { padding: 1.25rem 1.5rem 1.5rem; flex: 1; display: flex; flex-direction: column; gap: .4rem; }
+    .rac-card__top { display: flex; align-items: flex-start; justify-content: space-between; gap: .8rem; }
+    .rac-card__name { font-family: var(--font-h); font-size: .95rem; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; line-height: 1.2; }
+    .rac-card__price { font-family: var(--font-h); font-size: 1.05rem; font-weight: 700; color: var(--fg); white-space: nowrap; }
+    .rac-card__badges { display: flex; gap: .35rem; margin-top: .2rem; }
+    .rac-card__desc { font-size: .82rem; color: var(--fg-2); line-height: 1.5; margin-top: auto; padding-top: .6rem; }
+
+    /* ═══════════════════════════════════════════
+       BADGE
+    ═══════════════════════════════════════════ */
+    .badge { font-family: var(--font-h); font-size: .58rem; letter-spacing: .15em; text-transform: uppercase; padding: .18rem .5rem; border-radius: 2px; }
+    .badge-top { background: var(--accent); color: #fff; }
+    .badge-new { border: 1px solid var(--fg-3); color: var(--fg-3); }
+
+    /* ═══════════════════════════════════════════
+       BURGER CARDS (featured + grid)
+    ═══════════════════════════════════════════ */
+    .burger-note {
+      font-family: var(--font-h); font-size: .72rem; letter-spacing: .18em; text-transform: uppercase;
+      color: var(--accent); border: 1px solid rgba(204,26,43,.35); display: inline-flex;
+      align-items: center; gap: .5rem; padding: .4rem 1rem; border-radius: 3px; margin-bottom: 2rem;
+    }
+
+    /* Featured: first 2 side-by-side tall */
+    .burger-featured {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 1px; background: var(--border);
+      border: 1px solid var(--border);
+      margin-bottom: 1px;
+    }
+    /* Remaining: 2-col grid */
+    .burger-grid {
+      display: grid; grid-template-columns: repeat(2, 1fr);
+      gap: 1px; background: var(--border);
+      border: 1px solid var(--border);
+      border-top: none;
+    }
+
+    .b-card {
+      background: var(--bg-2); overflow: hidden; position: relative;
+      display: flex; flex-direction: column;
+      transition: background .25s var(--ease);
+    }
+    .b-card:hover { background: var(--bg-3); }
+    .b-card:hover .b-card__img img { transform: scale(1.04); }
+
+    .b-card--feat .b-card__img { aspect-ratio: 3/4; }
+    .b-card--reg  .b-card__img { aspect-ratio: 16/10; }
+
+    .b-card__img { width: 100%; overflow: hidden; position: relative; }
+    .b-card__img img { width: 100%; height: 100%; object-fit: cover; transition: transform .5s var(--ease); }
+    .b-card__img::after {
+      content: ''; position: absolute; inset: 0;
+      background: linear-gradient(to top, rgba(0,0,0,.85) 0%, rgba(0,0,0,.3) 45%, transparent 100%);
+    }
+
+    .b-card__overlay {
+      position: absolute; bottom: 0; left: 0; right: 0;
+      padding: 1.5rem; z-index: 1;
+    }
+    .b-card__badges { display: flex; gap: .35rem; margin-bottom: .5rem; }
+    .b-card__name { font-family: var(--font-h); font-size: 1.3rem; font-weight: 700; letter-spacing: .04em; text-transform: uppercase; line-height: 1.1; margin-bottom: .35rem; }
+    .b-card--feat .b-card__name { font-size: 1.6rem; }
+    .b-card__price { font-family: var(--font-h); font-size: 1.4rem; font-weight: 700; color: var(--fg); }
+    .b-card__desc {
+      font-size: .82rem; color: rgba(255,255,255,.7); line-height: 1.5;
+      margin-top: .5rem;
+      max-height: 0; overflow: hidden;
+      transition: max-height .4s var(--ease), opacity .3s;
+      opacity: 0;
+    }
+    .b-card:hover .b-card__desc { max-height: 80px; opacity: 1; }
+
+    /* ═══════════════════════════════════════════
+       POSTRES GRID (3 col)
+    ═══════════════════════════════════════════ */
+    .post-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: 1px; background: var(--border);
+      border: 1px solid var(--border);
+    }
+    .post-card {
+      background: var(--bg-2); display: flex; flex-direction: column;
+      overflow: hidden; transition: background .25s var(--ease);
+    }
+    .post-card:hover { background: var(--bg-3); }
+    .post-card:hover .post-card__img img { transform: scale(1.06); }
+    .post-card__img { width: 100%; aspect-ratio: 4/3; overflow: hidden; }
+    .post-card__img img { width: 100%; height: 100%; object-fit: cover; transition: transform .5s var(--ease); }
+    .post-card__body { padding: 1rem 1.25rem 1.25rem; display: flex; flex-direction: column; gap: .3rem; }
+    .post-card__row { display: flex; align-items: center; justify-content: space-between; gap: .5rem; }
+    .post-card__name { font-family: var(--font-h); font-size: .9rem; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; }
+    .post-card__price { font-family: var(--font-h); font-size: 1rem; font-weight: 700; white-space: nowrap; }
+    .post-card__desc { font-size: .8rem; color: var(--fg-2); }
+
+    /* ═══════════════════════════════════════════
+       HORARIO
+    ═══════════════════════════════════════════ */
+    .hora-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 1px; background: var(--border); border: 1px solid var(--border); }
+    .hora-card { background: var(--bg-2); padding: 2.5rem 2rem; display: flex; flex-direction: column; gap: .6rem; }
+    .hora-card__day { font-family: var(--font-h); font-size: .65rem; letter-spacing: .28em; text-transform: uppercase; color: var(--accent); }
+    .hora-card__hrs { font-family: var(--font-h); font-size: 1.8rem; font-weight: 700; letter-spacing: -.02em; line-height: 1; }
+    .hora-card__lbl { font-size: .8rem; color: var(--fg-3); }
+    .hora-note { margin-top: 1.5rem; border-left: 2px solid var(--accent); padding-left: 1rem; font-size: .875rem; color: var(--fg-2); }
+
+    /* ═══════════════════════════════════════════
+       CTA SECTION
+    ═══════════════════════════════════════════ */
+    .cta-sec { padding: 8rem 1.5rem; text-align: center; position: relative; overflow: hidden; }
+    .cta-sec::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse at 50% 50%, rgba(204,26,43,.1) 0%, transparent 65%); pointer-events: none; }
+    .cta-sec__eye { font-family: var(--font-h); font-size: .68rem; letter-spacing: .3em; text-transform: uppercase; color: var(--accent); margin-bottom: .8rem; display: block; }
+    .cta-sec__h { font-family: var(--font-h); font-size: clamp(3rem, 9vw, 6rem); font-weight: 700; text-transform: uppercase; letter-spacing: -.02em; line-height: .9; margin-bottom: 1.5rem; }
+    .cta-sec__p { color: var(--fg-2); max-width: 380px; margin: 0 auto 2.5rem; }
+
+    /* ═══════════════════════════════════════════
+       CONTACT BAR
+    ═══════════════════════════════════════════ */
+    .contact { background: var(--bg-1); border-top: 1px solid var(--border); }
+    .contact__inner { max-width: 1160px; margin: 0 auto; padding: 3rem 1.5rem; display: grid; grid-template-columns: repeat(auto-fit, minmax(200px,1fr)); gap: 2rem; }
+    .contact__item { display: flex; flex-direction: column; gap: .35rem; }
+    .contact__lbl { font-family: var(--font-h); font-size: .62rem; letter-spacing: .28em; text-transform: uppercase; color: var(--accent); }
+    .contact__val { font-family: var(--font-h); font-size: .95rem; font-weight: 500; }
+    .contact__val a:hover { color: var(--fg-2); }
+
+    /* ═══════════════════════════════════════════
+       FOOTER
+    ═══════════════════════════════════════════ */
+    footer { border-top: 1px solid var(--border); padding: 1.75rem 1.5rem; }
+    .foot { max-width: 1160px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; gap: 1rem; flex-wrap: wrap; }
+    .foot__brand { font-family: var(--font-h); font-size: 1rem; font-weight: 700; letter-spacing: .1em; }
+    .foot__brand b { color: var(--accent); }
+    .foot__copy { font-size: .72rem; color: var(--fg-3); }
+    .foot__links { display: flex; gap: 1.5rem; }
+    .foot__links a { font-family: var(--font-h); font-size: .7rem; letter-spacing: .12em; text-transform: uppercase; color: var(--fg-3); transition: color .2s; }
+    .foot__links a:hover { color: var(--fg); }
+
+    /* ═══════════════════════════════════════════
+       SCROLL REVEAL
+    ═══════════════════════════════════════════ */
+    .reveal { opacity: 0; transform: translateY(28px); transition: opacity .6s var(--ease), transform .6s var(--ease); }
+    .reveal.in { opacity: 1; transform: none; }
+
+    /* ═══════════════════════════════════════════
+       RESPONSIVE
+    ═══════════════════════════════════════════ */
+    @media (max-width: 900px) {
+      .rac-grid { grid-template-columns: repeat(2, 1fr); }
+      .post-grid { grid-template-columns: repeat(2, 1fr); }
+      .burger-featured { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 680px) {
+      .nav__links, .nav__cta { display: none; }
+      .nav__burger { display: flex; }
+      .rac-grid { grid-template-columns: 1fr; }
+      .burger-featured { grid-template-columns: 1fr; }
+      .burger-grid { grid-template-columns: 1fr; }
+      .post-grid { grid-template-columns: 1fr 1fr; }
+      .hora-grid { grid-template-columns: 1fr; }
+      .foot { flex-direction: column; align-items: flex-start; }
+      .b-card__desc { max-height: 80px; opacity: 1; }
+    }
+    @media (max-width: 420px) {
+      .post-grid { grid-template-columns: 1fr; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { animation-duration: .01ms !important; transition-duration: .01ms !important; }
+      .reveal { opacity: 1; transform: none; }
+    }
+
+    /* ═══════════════════════════════════════════
+       AURORA BACKGROUND  (inspired by Aceternity)
+    ═══════════════════════════════════════════ */
+    .aurora { position: absolute; inset: 0; overflow: hidden; pointer-events: none; z-index: 0; }
+    .aurora__blob {
+      position: absolute; border-radius: 50%;
+      filter: blur(90px); will-change: transform;
+    }
+    .aurora__blob:nth-child(1) {
+      width: 70vw; height: 70vw; max-width: 700px; max-height: 700px;
+      background: radial-gradient(circle, rgba(204,26,43,0.18) 0%, transparent 65%);
+      top: -25%; left: -15%;
+      animation: aurora-move 20s ease-in-out infinite;
+    }
+    .aurora__blob:nth-child(2) {
+      width: 50vw; height: 50vw; max-width: 500px; max-height: 500px;
+      background: radial-gradient(circle, rgba(120,0,0,0.12) 0%, transparent 65%);
+      top: 20%; right: -10%;
+      animation: aurora-move 26s ease-in-out infinite reverse;
+      animation-delay: -9s;
+    }
+    .aurora__blob:nth-child(3) {
+      width: 55vw; height: 55vw; max-width: 550px; max-height: 550px;
+      background: radial-gradient(circle, rgba(80,0,20,0.1) 0%, transparent 65%);
+      bottom: -15%; left: 25%;
+      animation: aurora-move 22s ease-in-out infinite;
+      animation-delay: -14s;
+    }
+    @keyframes aurora-move {
+      0%   { transform: translate(0,   0  ) scale(1);    }
+      25%  { transform: translate(6%,  9% ) scale(1.06); }
+      50%  { transform: translate(-4%, 14%) scale(0.94); }
+      75%  { transform: translate(9%,  -6%) scale(1.08); }
+      100% { transform: translate(0,   0  ) scale(1);    }
+    }
+
+    /* ═══════════════════════════════════════════
+       TYPEWRITER HERO
+    ═══════════════════════════════════════════ */
+    .typewriter-wrap { display: inline-block; }
+    .typewriter-cursor {
+      display: inline-block; width: 2px; height: 1em;
+      background: var(--accent); margin-left: 3px;
+      vertical-align: middle;
+      animation: cursor-blink .8s step-end infinite;
+    }
+    @keyframes cursor-blink {
+      0%, 100% { opacity: 1; }
+      50%       { opacity: 0; }
+    }
+
+    /* ═══════════════════════════════════════════
+       SHIMMER CARD HOVER  (inspired by 21st glare)
+    ═══════════════════════════════════════════ */
+    .rac-card, .post-card { position: relative; overflow: hidden; }
+    .rac-card::after, .post-card::after {
+      content: ''; position: absolute; inset: 0;
+      background: linear-gradient(105deg, transparent 40%, rgba(255,255,255,0.05) 50%, transparent 60%);
+      transform: translateX(-100%);
+      transition: none; pointer-events: none;
+    }
+    .rac-card:hover::after, .post-card:hover::after {
+      animation: card-shimmer .55s ease forwards;
+    }
+    @keyframes card-shimmer {
+      from { transform: translateX(-100%); }
+      to   { transform: translateX(150%); }
+    }
+
+    /* ═══════════════════════════════════════════
+       ANIMATED BLUR NUMBER  (inspired by 21st)
+    ═══════════════════════════════════════════ */
+    .hora-card__hrs {
+      transition: filter .3s, opacity .3s;
+    }
+    .hora-card__hrs.counting {
+      animation: blur-count .8s var(--ease) forwards;
+    }
+    @keyframes blur-count {
+      0%   { filter: blur(8px); opacity: 0.3; transform: scale(0.95); }
+      60%  { filter: blur(2px); opacity: 0.8; }
+      100% { filter: blur(0);   opacity: 1;   transform: scale(1); }
+    }
+
+    /* ═══════════════════════════════════════════
+       LETTER SPLIT REVEAL (section titles)
+    ═══════════════════════════════════════════ */
+    .split-letter {
+      display: inline-block;
+      opacity: 0; transform: translateY(40px) rotateX(-30deg);
+      transition: opacity .5s var(--ease), transform .5s var(--ease);
+    }
+    .split-letter.in {
+      opacity: 1; transform: none;
+    }
+
+    /* ═══════════════════════════════════════════
+       VAPOUR HERO WORD  (enhanced)
+    ═══════════════════════════════════════════ */
+    .hero__word {
+      animation: vapour-float 8s ease-in-out infinite;
+    }
+    @keyframes vapour-float {
+      0%,100% { opacity: 0.022; letter-spacing: -.03em; }
+      50%      { opacity: 0.038; letter-spacing: -.01em; }
+    }
+
+    /* ═══════════════════════════════════════════
+       CTA SECTION glow pulse
+    ═══════════════════════════════════════════ */
+    .cta-sec__h {
+      background: linear-gradient(135deg, #fff 40%, #cc1a2b 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      animation: gradient-shift 4s ease-in-out infinite alternate;
+      background-size: 200% 200%;
+    }
+    @keyframes gradient-shift {
+      0%   { background-position: 0% 50%; }
+      100% { background-position: 100% 50%; }
+    }
+
+    /* ═══════════════════════════════════════════
+       HERO logo draw-in
+    ═══════════════════════════════════════════ */
+    .hero__svg rect, .hero__svg text {
+      animation: fade-up .8s var(--ease) both;
+    }
+    .hero__svg rect:nth-child(1) { animation-delay: .1s; }
+    .hero__svg rect:nth-child(2) { animation-delay: .25s; }
+    .hero__svg text:nth-child(3) { animation-delay: .4s; }
+    .hero__svg text:nth-child(4) { animation-delay: .55s; }
+    @keyframes fade-up {
+      from { opacity: 0; transform: translateY(12px); }
+      to   { opacity: 1; transform: none; }
+    }
+
+    /* ═══════════════════════════════════════════
+       HERO pill pop-in
+    ═══════════════════════════════════════════ */
+    .hero__pill {
+      animation: pill-pop .6s var(--ease) .8s both;
+    }
+    @keyframes pill-pop {
+      from { opacity: 0; transform: scale(.8); }
+      to   { opacity: 1; transform: scale(1); }
+    }
+
+    /* ═══════════════════════════════════════════
+       PANEL FADE TRANSITION
+    ═══════════════════════════════════════════ */
+    .panel.on {
+      animation: panel-fade .3s var(--ease) both;
+    }
+    @keyframes panel-fade {
+      from { opacity: 0; transform: translateY(10px); }
+      to   { opacity: 1; transform: none; }
+    }
+
+    /* ═══════════════════════════════════════════
+       MAGNETIC BUTTON (JS-driven, CSS reset)
+    ═══════════════════════════════════════════ */
+    .btn { transition: background .2s var(--ease), transform .4s cubic-bezier(0.16,1,0.3,1), color .2s, box-shadow .3s; }
+    .btn:hover { box-shadow: 0 8px 30px rgba(204,26,43,.25); }
+
+    /* ═══════════════════════════════════════════
+       DELIVERY SECTION
+    ═══════════════════════════════════════════ */
+    .delivery-sec { background: var(--bg-1); }
+    .delivery-grid {
+      display: grid; grid-template-columns: repeat(3,1fr);
+      gap: 1.5rem; margin-top: 0;
+    }
+    .dlv-card {
+      display: flex; flex-direction: column; align-items: center;
+      background: var(--bg-2); border: 1px solid var(--border);
+      border-radius: 10px; padding: 2.5rem 1.75rem;
+      gap: 1.1rem; text-align: center;
+      transition: background .25s var(--ease), border-color .25s var(--ease), transform .3s var(--ease), box-shadow .3s var(--ease);
+      cursor: pointer;
+    }
+    .dlv-card:hover { background: var(--bg-3); border-color: var(--border-s); transform: translateY(-5px); box-shadow: 0 16px 40px rgba(0,0,0,.5); }
+    .dlv-badge { width: 84px; height: 84px; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+    .dlv-name { font-family: var(--font-h); font-size: 1.05rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; }
+    .dlv-desc { font-size: .82rem; color: var(--fg-2); line-height: 1.5; }
+    .dlv-btn {
+      margin-top: .3rem;
+      font-family: var(--font-h); font-size: .72rem; letter-spacing: .16em; text-transform: uppercase;
+      padding: .6rem 1.4rem; border-radius: 4px;
+      border: 1px solid var(--border-s); color: var(--fg-2);
+      transition: border-color .2s, color .2s, background .2s;
+    }
+    .dlv-card:hover .dlv-btn { border-color: var(--fg); color: var(--fg); }
+    @media (max-width: 760px) { .delivery-grid { grid-template-columns: 1fr; } }
+
+    /* ═══════════════════════════════════════════
+       SERVICE BADGES (contact)
+    ═══════════════════════════════════════════ */
+    .service-pills { display: flex; flex-wrap: wrap; gap: .5rem; margin-top: .3rem; }
+    .service-pill {
+      font-family: var(--font-h); font-size: .65rem; letter-spacing: .14em; text-transform: uppercase;
+      padding: .28rem .75rem; border-radius: 100px;
+      border: 1px solid var(--border-s); color: var(--fg-2);
+    }
+  </style>
+</head>
+<body>
+<a href="#main" class="skip-link">Saltar al contenido</a>
+
+<!-- ── NAVBAR ────────────────────────────────── -->
+<nav class="nav" id="nav" aria-label="Navegación principal">
+  <a href="#" class="nav__logo">EL <b>BÚNKER</b></a>
+  <div class="nav__links">
+    <a href="#carta">Carta</a>
+    <a href="#horario">Horario</a>
+    <a href="#contacto">Contacto</a>
+  </div>
+  <a href="#delivery" class="nav__cta">Pide Aquí</a>
+  <button class="nav__burger" id="btn-burger" aria-label="Abrir menú" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+<nav class="nav__mobile" id="mob-nav" aria-label="Menú móvil">
+  <a href="#carta"    onclick="closeMob()">Carta</a>
+  <a href="#horario"  onclick="closeMob()">Horario</a>
+  <a href="#contacto" onclick="closeMob()">Contacto</a>
+  <a href="#delivery" onclick="closeMob()">Pide Aquí</a>
+</nav>
+
+<main id="main">
+
+<!-- ── HERO ─────────────────────────────────── -->
+<section class="hero" aria-label="Bienvenida">
+  <div class="aurora" aria-hidden="true">
+    <div class="aurora__blob"></div>
+    <div class="aurora__blob"></div>
+    <div class="aurora__blob"></div>
+  </div>
+  <div class="hero__noise" aria-hidden="true"></div>
+  <div class="hero__word"   aria-hidden="true">BÚNKER</div>
+  <span class="hero__pill">Hamburguesas · Bar · Raciones · Santander</span>
+  <div class="hero__logo" aria-label="El Búnker logo">
+    <svg class="hero__svg" viewBox="0 0 440 130" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="El Búnker">
+      <rect x="1" y="1" width="438" height="128" rx="2" stroke="white" stroke-width="2.5"/>
+      <rect x="13" y="13" width="414" height="104" rx="1" stroke="white" stroke-width="1.5"/>
+      <text x="34" y="86" font-family="Oswald,sans-serif" font-size="33" font-weight="400" fill="white" letter-spacing="6">EL</text>
+      <text x="118" y="90" font-family="Oswald,sans-serif" font-size="65" font-weight="700" fill="white" letter-spacing="3">BÚNKER</text>
+    </svg>
+  </div>
+  <p class="hero__sub"><strong>Nuestra especialidad:</strong> <span class="typewriter-wrap" id="tw-text"></span><span class="typewriter-cursor" aria-hidden="true"></span></p>
+  <div class="hero__btns">
+    <a href="#carta"   class="btn btn-r">Ver carta</a>
+    <a href="#horario" class="btn btn-o">Horario</a>
+  </div>
+</section>
+
+<hr class="divider" />
+
+<!-- ── CARTA ─────────────────────────────────── -->
+<section id="carta" aria-labelledby="carta-h">
+
+  <!-- sticky tabs -->
+  <div class="tabs-wrap">
+    <div class="tabs" role="tablist" aria-label="Categorías">
+      <button class="tab on" role="tab" aria-selected="true"  aria-controls="p-rac"  id="t-rac">Raciones</button>
+      <button class="tab"    role="tab" aria-selected="false" aria-controls="p-bur"  id="t-bur">Hamburguesas</button>
+      <button class="tab"    role="tab" aria-selected="false" aria-controls="p-pos"  id="t-pos">Postres</button>
+    </div>
+  </div>
+
+  <!-- ── RACIONES ─────────────── -->
+  <div class="panel on" id="p-rac" role="tabpanel" aria-labelledby="t-rac">
+    <div class="wrap sec">
+      <div class="sec-head reveal">
+        <span class="sec-head__eye">Para compartir</span>
+        <h2 id="carta-h" class="sec-head__title">Raciones</h2>
+      </div>
+      <div class="rac-grid reveal">
+
+        <article class="rac-card">
+          <div class="rac-card__img">
+            <img src="https://kivly.s3.eu-west-3.amazonaws.com/2ccd1cd9-638e-4cdf-80ba-25598b46f47c.jpg" alt="Ensalada Búnker" loading="lazy" width="400" height="300" />
+          </div>
+          <div class="rac-card__body">
+            <div class="rac-card__top">
+              <h3 class="rac-card__name">Ensalada Búnker</h3>
+              <span class="rac-card__price">12 €</span>
+            </div>
+            <div class="rac-card__badges"><span class="badge badge-top">Top</span></div>
+            <p class="rac-card__desc">Lechuga, tomate, cebolla frita, pollo crujiente, bacon, queso rallado y salsa de yogur.</p>
+          </div>
+        </article>
+
+        <article class="rac-card">
+          <div class="rac-card__img">
+            <img src="https://kivly.s3.eu-west-3.amazonaws.com/84a9f0c2-b821-419e-af1a-1f87fd7c5e33.jpg" alt="Ensalada templada" loading="lazy" width="400" height="300" />
+          </div>
+          <div class="rac-card__body">
+            <div class="rac-card__top">
+              <h3 class="rac-card__name">Ensalada Templada</h3>
+              <span class="rac-card__price">12 €</span>
+            </div>
+            <p class="rac-card__desc">Lechuga, tomate, gulas, gambas, migas de salmón, champiñones y vinagre de Módena.</p>
+          </div>
+        </article>
+
+        <article class="rac-card">
+          <div class="rac-card__img">
+            <img src="https://kivly.s3.eu-west-3.amazonaws.com/5e5fa1b9-2b11-46ae-856d-6c7c7f8595d0.jpg" alt="Ensalada explosión tropical" loading="lazy" width="400" height="300" />
+          </div>
+          <div class="rac-card__body">
+            <div class="rac-card__top">
+              <h3 class="rac-card__name">Explosión Tropical</h3>
+              <span class="rac-card__price">14 €</span>
+            </div>
+            <p class="rac-card__desc">Lechuga, tomate, mango, aguacate, cilantro, queso feta y salsa mango curry.</p>
+          </div>
+        </article>
+
+        <article class="rac-card">
+          <div class="rac-card__img">
+            <img src="https://kivly.s3.eu-west-3.amazonaws.com/01dd0e10-e896-4053-b292-073679f5033f.jpg" alt="Mini empanadas artesanas" loading="lazy" width="400" height="300" />
+          </div>
+          <div class="rac-card__body">
+            <div class="rac-card__top">
+              <h3 class="rac-card__name">Mini Empanadas Artesanas</h3>
+              <span class="rac-card__price">12 €</span>
+            </div>
+            <p class="rac-card__desc">Carne mechada y pollo mechado.</p>
+          </div>
+        </article>
+
+        <article class="rac-card">
+          <div class="rac-card__img">
+            <img src="https://kivly.s3.eu-west-3.amazonaws.com/bc4c5f7b-a051-4a66-85a2-b5eddfe38e68.jpg" alt="Nachos Búnker" loading="lazy" width="400" height="300" />
+          </div>
+          <div class="rac-card__body">
+            <div class="rac-card__top">
+              <h3 class="rac-card__name">Nachos Búnker</h3>
+              <span class="rac-card__price">15 €</span>
+            </div>
+            <p class="rac-card__desc">Con carne mechada, guacamole casero, queso rallado y queso cheddar fundido.</p>
+          </div>
+        </article>
+
+        <article class="rac-card">
+          <div class="rac-card__img">
+            <img src="https://kivly.s3.eu-west-3.amazonaws.com/65b5462c-7cab-47c6-a708-6117e1913890.jpg" alt="Patatas Búnker" loading="lazy" width="400" height="300" />
+          </div>
+          <div class="rac-card__body">
+            <div class="rac-card__top">
+              <h3 class="rac-card__name">Patatas Búnker</h3>
+              <span class="rac-card__price">12 €</span>
+            </div>
+            <p class="rac-card__desc">Carne mechada, queso cheddar y salsa BBQ.</p>
+          </div>
+        </article>
+
+        <article class="rac-card">
+          <div class="rac-card__img">
+            <img src="https://kivly.s3.eu-west-3.amazonaws.com/7770f0dd-61f1-4a96-bd0e-6bf33ae4bf3d.jpg" alt="Patatas fritas" loading="lazy" width="400" height="300" />
+          </div>
+          <div class="rac-card__body">
+            <div class="rac-card__top">
+              <h3 class="rac-card__name">Patatas Fritas</h3>
+              <span class="rac-card__price">6 €</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="rac-card">
+          <div class="rac-card__img">
+            <img src="https://kivly.s3.eu-west-3.amazonaws.com/f4a0dc0a-e50a-4c78-be07-626bb63a5f8f.jpg" alt="Croquetas caseras de paleta ibérica" loading="lazy" width="400" height="300" />
+          </div>
+          <div class="rac-card__body">
+            <div class="rac-card__top">
+              <h3 class="rac-card__name">Croquetas Caseras</h3>
+              <span class="rac-card__price">2,4 € / ud.</span>
+            </div>
+            <div class="rac-card__badges"><span class="badge badge-top">Top</span></div>
+            <p class="rac-card__desc">De paleta ibérica.</p>
+          </div>
+        </article>
+
+        <article class="rac-card">
+          <div class="rac-card__img">
+            <img src="https://kivly.s3.eu-west-3.amazonaws.com/6c6bd010-c340-4e9d-bd2b-fdb4c6d1783a.jpg" alt="Tequeños artesanos" loading="lazy" width="400" height="300" />
+          </div>
+          <div class="rac-card__body">
+            <div class="rac-card__top">
+              <h3 class="rac-card__name">Tequeños Artesanos</h3>
+              <span class="rac-card__price">12 €</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="rac-card">
+          <div class="rac-card__img">
+            <img src="https://kivly.s3.eu-west-3.amazonaws.com/ea3a30e0-09eb-4d15-a702-97c5d19a2f65.jpg" alt="Rabas" loading="lazy" width="400" height="300" />
+          </div>
+          <div class="rac-card__body">
+            <div class="rac-card__top">
+              <h3 class="rac-card__name">Rabas</h3>
+              <span class="rac-card__price">8 / 14 €</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="rac-card">
+          <div class="rac-card__img">
+            <img src="https://kivly.s3.eu-west-3.amazonaws.com/5c1849e3-50a8-4fe8-92e3-e050870c530f.jpg" alt="Fingers de pollo caseros" loading="lazy" width="400" height="300" />
+          </div>
+          <div class="rac-card__body">
+            <div class="rac-card__top">
+              <h3 class="rac-card__name">Fingers de Pollo Caseros</h3>
+              <span class="rac-card__price">12 €</span>
+            </div>
+          </div>
+        </article>
+
+      </div><!-- /rac-grid -->
+    </div>
+  </div>
+
+  <!-- ── HAMBURGUESAS ──────────── -->
+  <div class="panel" id="p-bur" role="tabpanel" aria-labelledby="t-bur">
+    <div class="wrap sec">
+      <div class="sec-head reveal">
+        <span class="sec-head__eye">Nuestra especialidad</span>
+        <h2 class="sec-head__title">Hamburguesas</h2>
+        <p class="sec-head__note">Acompáñala con patatas por <strong>solo 1,5 € más</strong></p>
+      </div>
+
+      <span class="burger-note reveal">
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><circle cx="7" cy="7" r="6.5" stroke="#cc1a2b"/><rect x="6" y="3" width="2" height="5" rx="1" fill="#cc1a2b"/><rect x="6" y="9" width="2" height="2" rx="1" fill="#cc1a2b"/></svg>
+        Doble burguer en todas · Smash style
+      </span>
+
+      <!-- Featured 2 -->
+      <div class="burger-featured reveal">
+
+        <article class="b-card b-card--feat">
+          <div class="b-card__img">
+            <img src="https://kivly.s3.eu-west-3.amazonaws.com/9f19b8c3-640d-4cd6-a204-38ce28a939a5.jpg" alt="Búnker Smash hamburguesa" loading="lazy" width="600" height="800" />
+          </div>
+          <div class="b-card__overlay">
+            <div class="b-card__badges"><span class="badge badge-top">Top</span></div>
+            <h3 class="b-card__name">Búnker Smash</h3>
+            <span class="b-card__price">14,9 €</span>
+            <p class="b-card__desc">Doble burguer, carne mechada al estilo Búnker, bacon, queso y salsa secreta Búnker.</p>
+          </div>
+        </article>
+
+        <article class="b-card b-card--feat">
+          <div class="b-card__img">
+            <img src="https://kivly.s3.eu-west-3.amazonaws.com/caf2d5ff-da1a-421b-ac94-75f8f70d2614.jpg" alt="Fusión Smash hamburguesa" loading="lazy" width="600" height="800" />
+          </div>
+          <div class="b-card__overlay">
+            <h3 class="b-card__name">Fusión Smash</h3>
+            <span class="b-card__price">12,9 €</span>
+            <p class="b-card__desc">Doble burguer, queso cabra, bacon y fusión de salsas secreta.</p>
+          </div>
+        </article>
+
+      </div>
+
+      <!-- Remaining 4 -->
+      <div class="burger-grid reveal">
+
+        <article class="b-card b-card--reg">
+          <div class="b-card__img">
+            <img src="https://kivly.s3.eu-west-3.amazonaws.com/6d7b29ba-8410-4137-b790-494a381e5df5.jpg" alt="Azteca Smash hamburguesa" loading="lazy" width="600" height="375" />
+          </div>
+          <div class="b-card__overlay">
+            <h3 class="b-card__name">Azteca Smash</h3>
+            <span class="b-card__price">14,9 €</span>
+            <p class="b-card__desc">Doble burguer, guacamole, queso cheddar, queso rallado, bacon y nachos.</p>
+          </div>
+        </article>
+
+        <article class="b-card b-card--reg">
+          <div class="b-card__img">
+            <img src="https://kivly.s3.eu-west-3.amazonaws.com/152aadfa-a76a-4f27-95e2-5d4585b262b8.jpg" alt="Dago Smash hamburguesa" loading="lazy" width="600" height="375" />
+          </div>
+          <div class="b-card__overlay">
+            <h3 class="b-card__name">Dago Smash</h3>
+            <span class="b-card__price">14,9 €</span>
+            <p class="b-card__desc">Doble burguer, pollo mechado al estilo Búnker, queso cheddar, queso, bacon y salsa de yogur.</p>
+          </div>
+        </article>
+
+        <article class="b-card b-card--reg">
+          <div class="b-card__img">
+            <img src="https://kivly.s3.eu-west-3.amazonaws.com/6676558b-554f-40ef-a35a-b7408f4bbe4a.jpeg" alt="La Diabla hamburguesa" loading="lazy" width="600" height="375" />
+          </div>
+          <div class="b-card__overlay">
+            <div class="b-card__badges"><span class="badge badge-new">Nueva</span></div>
+            <h3 class="b-card__name">La Diabla</h3>
+            <span class="b-card__price">12,9 €</span>
+            <p class="b-card__desc">Pan rojo, medallón de pollo crujiente, bacon, lechuga, tomate y salsa lima mayo.</p>
+          </div>
+        </article>
+
+        <article class="b-card b-card--reg">
+          <div class="b-card__img">
+            <img src="https://kivly.s3.eu-west-3.amazonaws.com/d1577123-ae53-439c-8f0f-413462e9b9de.jpg" alt="3.14 Smash hamburguesa" loading="lazy" width="600" height="375" />
+          </div>
+          <div class="b-card__overlay">
+            <div class="b-card__badges"><span class="badge badge-new">Nueva</span></div>
+            <h3 class="b-card__name">3.14 Smash</h3>
+            <span class="b-card__price">14,9 €</span>
+            <p class="b-card__desc">Pan rojo, doble burguer, queso cheddar, bacon crujiente, cebolla caramelizada, pepinillo agridulce y salsa lima mayo.</p>
+          </div>
+        </article>
+
+      </div><!-- /burger-grid -->
+    </div>
+  </div>
+
+  <!-- ── POSTRES ───────────────── -->
+  <div class="panel" id="p-pos" role="tabpanel" aria-labelledby="t-pos">
+    <div class="wrap sec">
+      <div class="sec-head reveal">
+        <span class="sec-head__eye">El broche dulce</span>
+        <h2 class="sec-head__title">Postres</h2>
+      </div>
+      <div class="post-grid reveal">
+
+        <article class="post-card">
+          <div class="post-card__img">
+            <img src="https://kivly.s3.eu-west-3.amazonaws.com/d40acb92-bd30-4f6b-82b9-500ab7c1e10a.jpeg" alt="Tarta 3 chocolates" loading="lazy" width="400" height="300" />
+          </div>
+          <div class="post-card__body">
+            <div class="post-card__row">
+              <span class="post-card__name">Tarta 3 Chocolates</span>
+              <span class="post-card__price">6 €</span>
+            </div>
+            <p class="post-card__desc">Deliciosa tarta 3 chocolates. ¿3 chocolates? 3 placeres.</p>
+          </div>
+        </article>
+
+        <article class="post-card">
+          <div class="post-card__img">
+            <img src="https://kivly.s3.eu-west-3.amazonaws.com/a1307065-5a15-4f56-ad4a-22b2bba5172d.jpg" alt="Tarta Lotus" loading="lazy" width="400" height="300" />
+          </div>
+          <div class="post-card__body">
+            <div class="post-card__row">
+              <div style="display:flex;align-items:center;gap:.4rem;flex-wrap:wrap">
+                <span class="post-card__name">Tarta Lotus</span>
+                <span class="badge badge-new">Nueva</span>
+              </div>
+              <span class="post-card__price">6 €</span>
+            </div>
+            <p class="post-card__desc">Irresistible tarta de la famosa galleta Lotus.</p>
+          </div>
+        </article>
+
+        <article class="post-card">
+          <div class="post-card__img">
+            <img src="https://kivly.s3.eu-west-3.amazonaws.com/5829813c-79d7-4982-9d49-8f5b4d3350d1.jpg" alt="Tarta queso fría" loading="lazy" width="400" height="300" />
+          </div>
+          <div class="post-card__body">
+            <div class="post-card__row">
+              <span class="post-card__name">Tarta Queso Fría</span>
+              <span class="post-card__price">6 €</span>
+            </div>
+            <p class="post-card__desc">El clásico que nunca falla.</p>
+          </div>
+        </article>
+
+        <article class="post-card">
+          <div class="post-card__img">
+            <img src="https://kivly.s3.eu-west-3.amazonaws.com/3abee7a7-e783-4bf2-8b27-d70092873bcb.jpg" alt="Tarta queso horno" loading="lazy" width="400" height="300" />
+          </div>
+          <div class="post-card__body">
+            <div class="post-card__row">
+              <div style="display:flex;align-items:center;gap:.4rem;flex-wrap:wrap">
+                <span class="post-card__name">Tarta Queso Horno</span>
+                <span class="badge badge-top">Top</span>
+              </div>
+              <span class="post-card__price">6 €</span>
+            </div>
+            <p class="post-card__desc">Dorada por fuera, puro corazón cremoso por dentro.</p>
+          </div>
+        </article>
+
+        <article class="post-card">
+          <div class="post-card__img">
+            <img src="https://kivly.s3.eu-west-3.amazonaws.com/ca8c7933-6756-40d1-90db-8c85e8eec35a.jpg" alt="Tarta Oreo" loading="lazy" width="400" height="300" />
+          </div>
+          <div class="post-card__body">
+            <div class="post-card__row">
+              <div style="display:flex;align-items:center;gap:.4rem;flex-wrap:wrap">
+                <span class="post-card__name">Tarta Oreo</span>
+                <span class="badge badge-new">Nueva</span>
+              </div>
+              <span class="post-card__price">6 €</span>
+            </div>
+            <p class="post-card__desc">Tu galleta favorita en versión tarta espectacular.</p>
+          </div>
+        </article>
+
+        <article class="post-card">
+          <div class="post-card__img">
+            <img src="https://kivly.s3.eu-west-3.amazonaws.com/b86ffaa2-4aef-4b03-8401-79ab514650eb.png" alt="Helado" loading="lazy" width="400" height="300" />
+          </div>
+          <div class="post-card__body">
+            <div class="post-card__row">
+              <span class="post-card__name">Helado</span>
+              <span class="post-card__price">3,3 €</span>
+            </div>
+            <p class="post-card__desc">Pregunta por nuestra variedad.</p>
+          </div>
+        </article>
+
+      </div><!-- /post-grid -->
+    </div>
+  </div>
+
+</section><!-- /carta -->
+
+<hr class="divider" />
+
+<!-- ── HORARIO ────────────────────────────────── -->
+<section id="horario" class="sec sec--alt" aria-labelledby="hora-h">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="sec-head__eye">Cuándo encontrarnos</span>
+      <h2 id="hora-h" class="sec-head__title">Horario</h2>
+    </div>
+    <div class="hora-grid reveal">
+      <div class="hora-card">
+        <span class="hora-card__day">Lunes — Jueves</span>
+        <span class="hora-card__hrs count-blur" data-value="07:00 – 00:00">07:00 – 00:00</span>
+        <span class="hora-card__lbl">17 horas abierto</span>
+      </div>
+      <div class="hora-card">
+        <span class="hora-card__day">Viernes y Sábado</span>
+        <span class="hora-card__hrs count-blur" data-value="07:00 – 01:00">07:00 – 01:00</span>
+        <span class="hora-card__lbl">18 horas abierto</span>
+      </div>
+      <div class="hora-card">
+        <span class="hora-card__day">Domingo</span>
+        <span class="hora-card__hrs count-blur" data-value="07:00 – 00:00">07:00 – 00:00</span>
+        <span class="hora-card__lbl">17 horas abierto</span>
+      </div>
+    </div>
+    <p class="hora-note reveal">Abrimos <strong>todos los días de la semana</strong>, incluidos festivos. Para reservas o grupos, contáctanos directamente.</p>
+  </div>
+</section>
+
+<!-- ── CTA ───────────────────────────────────── -->
+<section class="cta-sec">
+  <span class="cta-sec__eye">¿Tienes hambre?</span>
+  <h2 class="cta-sec__h">Ven al<br>Búnker</h2>
+  <p class="cta-sec__p">La mejor smash burger de Santander te está esperando. Abiertos todos los días.</p>
+  <div class="hero__btns" style="justify-content:center">
+    <a href="#contacto" class="btn btn-r">Dónde estamos</a>
+    <a href="#carta"    class="btn btn-o">Ver carta completa</a>
+  </div>
+</section>
+
+<!-- ── DELIVERY ──────────────────────────────── -->
+<section id="delivery" class="sec delivery-sec" aria-labelledby="dlv-h">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="sec-head__eye">También en casa</span>
+      <h2 id="dlv-h" class="sec-head__title">Pide aquí</h2>
+      <p class="sec-head__note">Recibe el Búnker donde estés. Elige tu plataforma favorita.</p>
+    </div>
+    <div class="delivery-grid reveal">
+
+      <!-- Uber Eats -->
+      <a href="https://www.ubereats.com/es/store/el-bunker/qV8dE6J4XZq0FALuq1pY1g" target="_blank" rel="noopener noreferrer" class="dlv-card">
+        <div class="dlv-badge" style="background:#06C167">
+          <svg width="56" height="38" viewBox="0 0 56 38" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <text x="3" y="17" font-family="Oswald,sans-serif" font-size="13" font-weight="700" fill="#000" letter-spacing="0">Uber</text>
+            <text x="3" y="34" font-family="Oswald,sans-serif" font-size="13" font-weight="700" fill="#000" letter-spacing="0">Eats</text>
+          </svg>
+        </div>
+        <span class="dlv-name">Uber Eats</span>
+        <span class="dlv-desc">Pide a domicilio directamente desde Uber Eats. Entrega rápida.</span>
+        <span class="dlv-btn">Pedir ahora &rarr;</span>
+      </a>
+
+      <!-- Just Eat -->
+      <a href="https://www.just-eat.es/restaurants-el-bunker-santander/menu" target="_blank" rel="noopener noreferrer" class="dlv-card">
+        <div class="dlv-badge" style="background:#FF8000">
+          <svg width="52" height="52" viewBox="0 0 52 52" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <!-- house shape -->
+            <path d="M26 8L10 22h5v18h22V22h5L26 8z" fill="white"/>
+            <!-- fork & knife -->
+            <rect x="21.5" y="24" width="2" height="12" rx="1" fill="#FF8000"/>
+            <rect x="28.5" y="24" width="2" height="12" rx="1" fill="#FF8000"/>
+            <path d="M21.5 24v-4c0 0 2-2 2 0v4" stroke="#FF8000" stroke-width="1.5" fill="none"/>
+          </svg>
+        </div>
+        <span class="dlv-name">Just Eat</span>
+        <span class="dlv-desc">Consulta carta, precios y ofertas exclusivas en Just Eat.</span>
+        <span class="dlv-btn">Pedir ahora &rarr;</span>
+      </a>
+
+      <!-- Vikeve Delivery -->
+      <a href="https://www.instagram.com/vikevedelivery/" target="_blank" rel="noopener noreferrer" class="dlv-card">
+        <div class="dlv-badge" style="background:#003DA5">
+          <svg width="60" height="42" viewBox="0 0 60 42" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <text x="3" y="19" font-family="Oswald,sans-serif" font-size="14" font-weight="700" fill="#F5C518" letter-spacing="0">Vikeve</text>
+            <text x="3" y="36" font-family="Oswald,sans-serif" font-size="10" font-weight="400" fill="white" letter-spacing="0">Delivery</text>
+          </svg>
+        </div>
+        <span class="dlv-name">Vikeve Delivery</span>
+        <span class="dlv-desc">Delivery local 100% santanderino. Contacta desde su Instagram.</span>
+        <span class="dlv-btn">Ver en Instagram &rarr;</span>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+<hr class="divider" />
+
+<!-- ── CONTACTO ───────────────────────────────── -->
+<div id="contacto" class="contact">
+  <div class="contact__inner">
+    <div class="contact__item">
+      <span class="contact__lbl">Dirección</span>
+      <span class="contact__val"><a href="https://www.google.com/maps/search/El+B%C3%BAnker+Pl.+Dionisio+Ridruejo+Santander" target="_blank" rel="noopener noreferrer">Pl. Dionisio Ridruejo · 39009 Santander</a></span>
+    </div>
+    <div class="contact__item">
+      <span class="contact__lbl">Teléfono</span>
+      <span class="contact__val"><a href="tel:+34602610589">602 61 05 89</a></span>
+    </div>
+    <div class="contact__item">
+      <span class="contact__lbl">Instagram</span>
+      <span class="contact__val"><a href="https://instagram.com/elbunkersantander" target="_blank" rel="noopener noreferrer">@elbunkersantander</a></span>
+    </div>
+    <div class="contact__item">
+      <span class="contact__lbl">Servicio</span>
+      <div class="service-pills">
+        <span class="service-pill">Terraza</span>
+        <span class="service-pill">Comida en el bar</span>
+        <span class="service-pill">Se admiten perros</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+</main>
+
+<!-- ── FOOTER ─────────────────────────────────── -->
+<footer>
+  <div class="foot">
+    <div class="foot__brand">EL <b>BÚNKER</b></div>
+    <p class="foot__copy">© 2025 El Búnker Santander · Todos los derechos reservados</p>
+    <nav class="foot__links" aria-label="Redes sociales">
+      <a href="https://instagram.com/" target="_blank" rel="noopener noreferrer">Instagram</a>
+      <a href="https://www.google.com/maps/search/El+B%C3%BAnker+Pl.+Dionisio+Ridruejo+Santander" target="_blank" rel="noopener noreferrer">Cómo llegar</a>
+    </nav>
+  </div>
+</footer>
+
+<script>
+  /* ── TABS ── */
+  const tabs   = document.querySelectorAll('.tab');
+  const panels = document.querySelectorAll('.panel');
+  tabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+      tabs.forEach(t => { t.classList.remove('on'); t.setAttribute('aria-selected','false'); });
+      panels.forEach(p => p.classList.remove('on'));
+      tab.classList.add('on'); tab.setAttribute('aria-selected','true');
+      document.getElementById(tab.getAttribute('aria-controls')).classList.add('on');
+      setTimeout(observe, 50);
+    });
+  });
+
+  /* ── MOBILE NAV ── */
+  const btnBurger = document.getElementById('btn-burger');
+  const mobNav    = document.getElementById('mob-nav');
+  btnBurger.addEventListener('click', () => {
+    const open = mobNav.classList.toggle('open');
+    btnBurger.classList.toggle('open', open);
+    btnBurger.setAttribute('aria-expanded', open);
+  });
+  function closeMob() { mobNav.classList.remove('open'); btnBurger.classList.remove('open'); btnBurger.setAttribute('aria-expanded','false'); }
+  document.addEventListener('click', e => { if (!btnBurger.contains(e.target) && !mobNav.contains(e.target)) closeMob(); });
+
+  /* ── NAVBAR SCROLL ── */
+  const navEl = document.getElementById('nav');
+  window.addEventListener('scroll', () => {
+    navEl.style.background = window.scrollY > 50 ? 'rgba(0,0,0,0.98)' : 'rgba(0,0,0,0.9)';
+  }, { passive: true });
+
+  /* ── SCROLL REVEAL ── */
+  function observe() {
+    document.querySelectorAll('.reveal:not(.in)').forEach(el => {
+      if (el.getBoundingClientRect().top < window.innerHeight * 0.92) el.classList.add('in');
+    });
+  }
+  window.addEventListener('scroll', observe, { passive: true });
+  observe();
+
+  /* ── TYPEWRITER  (inspired by 21st.dev Typewriter) ── */
+  (function() {
+    const el    = document.getElementById('tw-text');
+    if (!el) return;
+    const words = ['Hamburguesas Smash', 'Nachos Búnker', 'Croquetas Ibéricas', 'Smash Burgers'];
+    let wi = 0, ci = 0, deleting = false;
+    const speed = { type: 68, del: 38, pause: 1800, start: 1000 };
+
+    function tick() {
+      const word = words[wi];
+      if (!deleting) {
+        el.textContent = word.slice(0, ++ci);
+        if (ci === word.length) { deleting = true; setTimeout(tick, speed.pause); return; }
+      } else {
+        el.textContent = word.slice(0, --ci);
+        if (ci === 0) { deleting = false; wi = (wi + 1) % words.length; }
+      }
+      setTimeout(tick, deleting ? speed.del : speed.type);
+    }
+    setTimeout(tick, speed.start);
+  })();
+
+  /* ── LETTER SPLIT REVEAL  (inspired by 21st.dev animated text) ── */
+  (function() {
+    document.querySelectorAll('.sec-head__title').forEach(el => {
+      const text = el.textContent;
+      el.innerHTML = text.split('').map((ch, i) =>
+        `<span class="split-letter" style="transition-delay:${i * 35}ms">${ch === ' ' ? '&nbsp;' : ch}</span>`
+      ).join('');
+    });
+
+    const splitObs = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.querySelectorAll('.split-letter').forEach(s => s.classList.add('in'));
+          splitObs.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.2 });
+
+    document.querySelectorAll('.sec-head').forEach(h => splitObs.observe(h));
+  })();
+
+  /* ── ANIMATED BLUR NUMBER  (inspired by 21st.dev Animated Blur Number) ── */
+  (function() {
+    const blurObs = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.querySelectorAll('.count-blur').forEach((el, i) => {
+            setTimeout(() => {
+              el.classList.add('counting');
+              el.addEventListener('animationend', () => el.classList.remove('counting'), { once: true });
+            }, i * 180);
+          });
+          blurObs.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.3 });
+
+    const horaGrid = document.querySelector('.hora-grid');
+    if (horaGrid) blurObs.observe(horaGrid);
+  })();
+
+  /* ── MAGNETIC BUTTONS  (inspired by 21st.dev Magnetize Button) ── */
+  (function() {
+    const ease = 'cubic-bezier(0.16,1,0.3,1)';
+    document.querySelectorAll('.btn').forEach(btn => {
+      btn.addEventListener('mousemove', e => {
+        const r = btn.getBoundingClientRect();
+        const x = (e.clientX - r.left - r.width  / 2) * 0.25;
+        const y = (e.clientY - r.top  - r.height / 2) * 0.35;
+        btn.style.transition = 'transform .1s linear, background .2s, box-shadow .3s';
+        btn.style.transform  = `translate(${x}px, ${y}px)`;
+      });
+      btn.addEventListener('mouseleave', () => {
+        btn.style.transition = `transform .5s ${ease}, background .2s, box-shadow .3s`;
+        btn.style.transform  = 'translate(0,0)';
+      });
+    });
+  })();
+
+  /* ── CARD TILT  (subtle 3D on burger cards) ── */
+  (function() {
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (prefersReducedMotion) return;
+    document.querySelectorAll('.b-card').forEach(card => {
+      card.addEventListener('mousemove', e => {
+        const r   = card.getBoundingClientRect();
+        const x   = (e.clientX - r.left) / r.width  - 0.5;
+        const y   = (e.clientY - r.top)  / r.height - 0.5;
+        card.style.transform = `perspective(600px) rotateY(${x * 5}deg) rotateX(${-y * 4}deg) scale(1.01)`;
+        card.style.transition = 'transform .1s linear';
+      });
+      card.addEventListener('mouseleave', () => {
+        card.style.transform  = '';
+        card.style.transition = 'transform .5s cubic-bezier(0.16,1,0.3,1), background .25s';
+      });
+    });
+  })();
+
+  /* ── HERO ELEMENTS STAGGER  ── */
+  (function() {
+    const targets = ['.hero__pill', '.hero__logo', '.hero__sub', '.hero__btns', '.hero__scroll'];
+    targets.forEach((sel, i) => {
+      const el = document.querySelector(sel);
+      if (!el) return;
+      el.style.opacity    = '0';
+      el.style.transform  = 'translateY(20px)';
+      el.style.transition = `opacity .7s cubic-bezier(0.16,1,0.3,1) ${i * 120 + 200}ms, transform .7s cubic-bezier(0.16,1,0.3,1) ${i * 120 + 200}ms`;
+      requestAnimationFrame(() => requestAnimationFrame(() => {
+        el.style.opacity   = '1';
+        el.style.transform = 'none';
+      }));
+    });
+  })();
+</script>
+</body>
+</html>
